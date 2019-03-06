@@ -6,10 +6,10 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-	var message = msg.toString.split(" ")
+	var message = msg.toString.split(" ");
 	if(message[0] == "!newchan")
 	{
-		role = msg.guild.createRole({name: message[1]})
+		role = msg.guild.createRole({name: message[1]});
 		if ((var category = msg.guild.channels.find(channel => channel.type == category && channel.name == message[2])) == undefined)
 		{
 			guild.createChannel(message[2], 'category')
