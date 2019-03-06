@@ -14,11 +14,11 @@ client.on('message', msg => {
 		if ((category = msg.guild.channels.find(channel => channel.type == category && channel.name == message[2])) == undefined)
 		{
 			guild.createChannel(message[2], 'category')
-  			.then({category => msg.guild.createChannel(message[1], 'text', , [{
+  			.then(function(category) {msg.guild.createChannel(message[1], 'text', , [{
   				id: role,
   				allow: ['SEND_MESSAGES', 'READ_MESSAGES'],
 				}])
-				.then({chan => chan.setParent(category)})
+				.then(function(chan) {chan.setParent(category)})
 			})
 		}
 		else
@@ -27,7 +27,7 @@ client.on('message', msg => {
   				id: role,
   				allow: ['SEND_MESSAGES', 'READ_MESSAGES'],
 				}])
-				.then({chan => chan.setParent(category)})
+				.then(function(chan) {chan.setParent(category)})
 		}
 	}
 })
