@@ -9,7 +9,7 @@ client.on('message', msg => {
 	var message = msg.toString().split(" ");
 	if(message[0] == "!newchan")
 	{
-		msg.guild.createRole({name: message[1]}).then(function (role) {
+		msg.guild.createRole({name: message[1]+" "+message[2]}).then(function (role) {
 			console.log(role.id);
 			var category ;
 			if ((category = msg.guild.channels.find(channel => channel.type == "category" && channel.name == message[2])) == null)
