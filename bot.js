@@ -13,7 +13,7 @@ client.on('message', msg => {
 		var category ;
 		if ((category = msg.guild.channels.find(channel => channel.type == category && channel.name == message[2])) == undefined)
 		{
-			guild.createChannel(message[2], 'category')
+			msg.guild.createChannel(message[2], 'category')
   			.then(function(category) {msg.guild.createChannel(message[1], 'text', [{
   				id: role,
   				allow: ['SEND_MESSAGES', 'READ_MESSAGES'],
