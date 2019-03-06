@@ -6,7 +6,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-	var message = msg.toString.split(" ");
+	var message = msg.toString().split(" ");
 	if(message[0] == "!newchan")
 	{
 		role = msg.guild.createRole({name: message[1]});
