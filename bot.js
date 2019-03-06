@@ -15,7 +15,7 @@ client.on('message', msg => {
 		{
 			msg.guild.createChannel(message[2], 'category')
   			.then(function(category) {msg.guild.createChannel(message[1], 'text', [{
-  				id: role,
+  				id: role.id,
   				allow: ['SEND_MESSAGES', 'READ_MESSAGES'],
 				}])
 				.then(function(chan) {chan.setParent(category)})
@@ -24,7 +24,7 @@ client.on('message', msg => {
 		else
 		{
 			category => msg.guild.createChannel(message[1], 'text', [{
-  				id: role,
+  				id: role.id,
   				allow: ['SEND_MESSAGES', 'READ_MESSAGES'],
 				}])
 				.then(function(chan) {chan.setParent(category)})
