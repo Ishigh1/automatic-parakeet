@@ -30,7 +30,7 @@ client.on('message', msg => {
 					}])
 					.then(function(chan) {chan.setParent(category)})
 			}
-		}
+		})
 	}
 })
 
