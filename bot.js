@@ -12,7 +12,7 @@ client.on('message', msg => {
 		msg.guild.createRole({name: message[1]}).then(function (role) {
 			console.log(role.id);
 			var category ;
-			if ((category = msg.guild.channels.find(channel => channel.type == "category" && channel.name == message[2])) === undefined)
+			if ((category = msg.guild.channels.find(channel => channel.type == "category" && channel.name == message[2])) == null)
 			{
 				console.log("\n1");
 				msg.guild.createChannel(message[2], 'category')
