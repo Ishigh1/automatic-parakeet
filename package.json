@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "chancreator",
   "version": "1.0.0",
   "description": "",
   "main": "bot.js",
@@ -19,6 +19,6 @@
   "license": "MIT",
   "dependencies": {
     "discord.js": "^11.3.0",
-    "request": "^2.81.0",
+    "request": "^2.81.0"
   }
 }
