@@ -25,7 +25,7 @@ client.on('message', msg => {
 			}
 			else
 			{
-				console.log("\n2");
+				console.log(category);
 				category => msg.guild.createChannel(message[1], 'text', [{
   					id: role.id,
   					allow: ['SEND_MESSAGES', 'READ_MESSAGES'],
