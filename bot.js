@@ -10,7 +10,8 @@ client.on('message', msg => {
 	if(message[0] == "!newchan")
 	{
 		role = msg.guild.createRole({name: message[1]});
-		if ((var category = msg.guild.channels.find(channel => channel.type == category && channel.name == message[2])) == undefined)
+		var category ;
+		if ((category = msg.guild.channels.find(channel => channel.type == category && channel.name == message[2])) == undefined)
 		{
 			guild.createChannel(message[2], 'category')
   			.then({category => msg.guild.createChannel(message[1], 'text', , [{
