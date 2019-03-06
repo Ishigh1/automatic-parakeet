@@ -6,12 +6,29 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  var message = msg.toString.split(" ")
-  if(message[0] == "!newchan")
-  {
-    msg.
-  }
+	var message = msg.toString.split(" ")
+	if(message[0] == "!newchan")
+	{
+		role = msg.guild.createRole({name: message[1]})
+		if ((var category = msg.guild.channels.find(channel => channel.type == category && channel.name == message[2])) == undefined)
+		{
+			guild.createChannel(message[2], 'category')
+  			.then({category => msg.guild.createChannel(message[1], 'text', , [{
+  				id: role,
+  				allow: ['SEND_MESSAGES', 'READ_MESSAGES'],
+				}])
+				.then({chan => chan.setParent(category)})
+			})
+		}
+		else
+		{
+			category => msg.guild.createChannel(message[1], 'text', , [{
+  				id: role,
+  				allow: ['SEND_MESSAGES', 'READ_MESSAGES'],
+				}])
+				.then({chan => chan.setParent(category)})
+		}
+	}
 })
 
 client.login(process.env.BOT_KEY);
-var channels
