@@ -14,6 +14,7 @@ client.on('message', msg => {
 			var category ;
 			if ((category = msg.guild.channels.find(channel => channel.type == "category" && channel.name == message[2])) === undefined)
 			{
+				console.log("\n1");
 				msg.guild.createChannel(message[2], 'category')
   				.then(function(category) {msg.guild.createChannel(message[1], 'text', [{
   					id: role.id,
@@ -24,6 +25,7 @@ client.on('message', msg => {
 			}
 			else
 			{
+				console.log("\n2");
 				category => msg.guild.createChannel(message[1], 'text', [{
   					id: role.id,
   					allow: ['SEND_MESSAGES', 'READ_MESSAGES'],
