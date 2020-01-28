@@ -16,20 +16,14 @@ client.on('message', msg => {
 			{
 				console.log("\n1");
 				msg.guild.createChannel(message[2], 'category')
-  				.then(function(category) {msg.guild.createChannel(message[1], 'text', [{
-  					id: role.id,
-	  				allow: ['SEND_MESSAGES', 'READ_MESSAGES'],
-					}])
+  				.then(function(category) {msg.guild.createChannel(message[1], 'text')
 					.then(function(chan) {chan.setParent(category)})
 				})
 			}
 			else
 			{
 				console.log(category);
-				msg.guild.createChannel(message[1], 'text', [{
-  					id: role.id,
-  					allow: ['SEND_MESSAGES', 'READ_MESSAGES'],
-					}])
+				msg.guild.createChannel(message[1], 'text')
 					.then(function(chan) {chan.setParent(category)})
 			}
 		})
