@@ -9,24 +9,22 @@ client.on('message', msg => {
 	var message = msg.toString().split(" ");
 	if(message[0] == "!newchan")
 	{
-		msg.guild.createRole({name: message[1]+" "+message[2]}).then(function (role) {
-			console.log(role.id);
-			var category ;
-			if ((category = msg.guild.channels.find(channel => channel.type == "category" && channel.name == message[2])) == null)
-			{
-				console.log("\n1");
-				msg.guild.createChannel(message[2], 'category')
-  				.then(function(category) {msg.guild.createChannel(message[1], 'text')
-					.then(function(chan) {chan.setParent(category)})
-				})
-			}
-			else
-			{
-				console.log(category);
-				msg.guild.createChannel(message[1], 'text')
-					.then(function(chan) {chan.setParent(category)})
-			}
-		})
+		console.log(role.id);
+		var category ;
+		if ((category = msg.guild.channels.find(channel => channel.type == "category" && channel.name == message[2])) == null)
+		{
+			console.log("\n1");
+			msg.guild.createChannel(message[2], 'category')
+  			.then(function(category) {msg.guild.createChannel(message[1], 'text')
+				.then(function(chan) {chan.setParent(category)})
+			})
+		}
+		else
+		{
+			console.log(category);
+			msg.guild.createChannel(message[1], 'text')
+				.then(function(chan) {chan.setParent(category)})
+		}
 	}
 })
 
