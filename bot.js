@@ -12,17 +12,35 @@ client.on('message', msg => {
 		var category ;
 		if ((category = msg.guild.channels.find(channel => channel.type == "category" && channel.name == message[2])) == null)
 		{
-			console.log("\n1");
 			msg.guild.createChannel(message[2], 'category')
-  			.then(function(category) {msg.guild.createChannel(message[1], 'text')
-				.then(function(chan) {chan.setParent(category)})
+  				.then(function(category) {msg.guild.createChannel(message[1], 'text')
+					.then(function(chan) {chan.setParent(category)})
 			})
 		}
 		else
 		{
-			console.log(category);
 			msg.guild.createChannel(message[1], 'text')
 				.then(function(chan) {chan.setParent(category)})
+		}
+	}
+	else if (message[0] == "!join")
+	{
+		var role ;
+		if ((role = msg.guild.roles.find(role1 => role1.name == message[1]) == null)
+		{
+			msg.guild.createRole({
+		    		name: message[1],
+		    		position: 0,
+		    		mentionable: true
+		    		})
+  				.then(function(role) 
+				      {
+					msg.member.addRole(role)
+			})
+		}
+		else
+		{
+			msg.member.addRole(role)
 		}
 	}
 })
