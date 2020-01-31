@@ -26,7 +26,7 @@ client.on('message', msg => {
 	else if (message[0] == "!join")
 	{
 		var role ;
-		if ((role = msg.guild.roles.find(role1 => role1.name == message[1]) == null)
+		if (role = msg.guild.roles.find(role1 => role1.name == message[1]) == null)
 		{
 			msg.guild.createRole({
 		    		name: message[1],
