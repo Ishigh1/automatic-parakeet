@@ -31,6 +31,7 @@ client.on('message', msg => {
 			msg.guild.createRole({
 		    		name: message[1],
 		    		position: 0,
+				hoist: true,
 		    		mentionable: true
 		    		})
   				.then(function(role) 
@@ -40,8 +41,19 @@ client.on('message', msg => {
 		}
 		else
 		{
-			console.log(role);
 			msg.member.addRole(role)
+		}
+	}
+	else if (message[0] == "!leave")
+	{
+		var role ;
+		if ((role = msg.member.roles.find(role1 => role1.name == message[1])) == null)
+		{
+			msg.member.removeRole(role);
+			if (role.members.length == 0)
+			{
+				role.delete();
+			}
 		}
 	}
 })
