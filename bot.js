@@ -50,7 +50,7 @@ client.on('message', msg => {
 		if ((role = msg.member.roles.find(role1 => role1.name == message[1])) != null)
 		{
 			msg.member.removeRole(role);
-			if (role.members.length == 0)
+			if (role.members.array().length == 0)
 			{
 				role.delete();
 			}
