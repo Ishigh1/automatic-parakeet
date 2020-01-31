@@ -49,13 +49,11 @@ client.on('message', msg => {
 		var role ;
 		if ((role = msg.member.roles.find(role1 => role1.name == message[1])) != null)
 		{
-			role.members.delete(msg.member);
-			console.log(role.members);
-			//msg.member.removeRole(role);
-			if (role.members.first() == null)
+			if (role.members.every(member -> member == msg.member))
 			{
 				role.delete();
 			}
+			msg.member.removeRole(role);
 		}
 	}
 })
