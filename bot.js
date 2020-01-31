@@ -26,11 +26,12 @@ client.on('message', msg => {
 	else if (message[0] == "!join")
 	{
 		var role ;
-		if ((role = msg.guild.roles.find(role1 => role1.name == message[1]) == null)
+		if ((role = msg.guild.roles.find(role1 => role1.name == message[1])) == null)
 		{
 			msg.guild.createRole({
 		    		name: message[1],
 		    		position: 0,
+				hoist: true,
 		    		mentionable: true
 		    		})
   				.then(function(role) 
@@ -41,6 +42,18 @@ client.on('message', msg => {
 		else
 		{
 			msg.member.addRole(role)
+		}
+	}
+	else if (message[0] == "!leave")
+	{
+		var role ;
+		if ((role = msg.member.roles.find(role1 => role1.name == message[1])) != null)
+		{
+			if (role.members.every(member => member == msg.member))
+			{
+				role.delete();
+			}
+			msg.member.removeRole(role);
 		}
 	}
 })
