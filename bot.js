@@ -49,9 +49,9 @@ client.on('message', msg => {
 		var role ;
 		if ((role = msg.member.roles.find(role1 => role1.name == message[1])) != null)
 		{
-			msg.member.removeRole(role);
 			role.members.delete(msg.member);
 			console.log(role.members);
+			//msg.member.removeRole(role);
 			if (role.members.first() == null)
 			{
 				role.delete();
