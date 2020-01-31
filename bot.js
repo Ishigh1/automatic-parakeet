@@ -40,6 +40,7 @@ client.on('message', msg => {
 		}
 		else
 		{
+			console.log(role);
 			msg.member.addRole(role)
 		}
 	}
