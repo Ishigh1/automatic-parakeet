@@ -55,6 +55,7 @@ client.on('message', msg => {
 				role.delete();
 			}
 		}
+		console.log(role);
 	}
 })
 
