@@ -47,7 +47,7 @@ client.on('message', msg => {
 	else if (message[0] == "!leave")
 	{
 		var role ;
-		if ((role = msg.member.roles.find(role1 => role1.name == message[1])) == null)
+		if ((role = msg.member.roles.find(role1 => role1.name == message[1])) != null)
 		{
 			msg.member.removeRole(role);
 			if (role.members.length == 0)
@@ -55,7 +55,6 @@ client.on('message', msg => {
 				role.delete();
 			}
 		}
-		console.log(role);
 	}
 })
 
